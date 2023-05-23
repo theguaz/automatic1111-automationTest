@@ -8,7 +8,7 @@ from PIL import Image
 
 
 # A1111 URL
-url = "http://0.0.0.0:7861"
+url = "http://127.0.0.1:7860"
 
 # Read Image in RGB order
 img = cv2.imread('/Users/luisguajardo/Desktop/sem-explorations-Auto1111/automatic1111-automationTest/tests/06.png')[:, :, ::-1]
@@ -29,8 +29,8 @@ payload = {
             "args": [
                 {
                     "input_image": encoded_image,
-                    "module": "canny",
-                    "model": "control_v11p_sd15_canny [d14c016b]",
+                    "module": "openpose",
+                    "model": "control_v11p_sd15_openpose [cab727d4]",
                 }
             ]
         }

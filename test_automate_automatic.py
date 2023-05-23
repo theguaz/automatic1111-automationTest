@@ -9,8 +9,8 @@ import io
 
 from PIL import Image
 
-noUI_URL = "http://127.0.0.1:7861/sdapi/v1/img2img"
-API_URL = "http://0.0.0.0:7861/sdapi/v1/img2img"
+URL = "http://127.0.0.1:7860/sdapi/v1/img2img"
+
 
 testArray = ["09","07","06","04", "10"]
 testFolder = "/Users/luisguajardo/Desktop/sem-explorations-Auto1111/automatic1111-automationTest/tests/"
@@ -50,7 +50,7 @@ def getMaskImage (imageName):
 
 def generateImage():
     whichImage = testArray[3]#random.choice(testArray)
-    txt2img_url = API_URL
+    txt2img_url = URL
     
     baseImage = str( getBaseImage(whichImage) ) 
     maskImage = str( getMaskImage(whichImage) )
@@ -87,19 +87,8 @@ def generateImage():
                             "input_image": baseImage,
                             "module": "openpose",
                             "mask": "",
-                            "model": "control_openpose-fp16 [9ca67cc5]",
-                            "weight": 1.5,
-                            "width":960,
-                            "height":512,
-                            "resize_mode": 1,
-                            "low_vram": False,
-                            "processor_res": 512,
-                            "threshold_a": 0,
-                            "threshold_b": 1,
-                            "guidance_start": 0, 
-                            "guidance_end": 1, 
-                            "control_mode": 1,
-                            "pixel_perfect": True
+                            "model": "control_v11p_sd15_openpose [cab727d4]",
+                            "weight": 1.5
                         }
                     ]
                 }
