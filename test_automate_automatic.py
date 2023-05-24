@@ -109,6 +109,7 @@ def generateImage():
             "inpainting_fill": 1,
             "inpaint_full_res": False,
              "inpainting_mask_invert": 1,
+
             "alwayson_scripts": {
                 "controlnet": {
                     "args": [
@@ -118,7 +119,7 @@ def generateImage():
                             "module": "openpose",
                             "mask": "",
                             "model": "control_v11p_sd15_openpose [cab727d4]",
-                            "weight": 1.5
+                            "weight": 1.15
                         }
                     ]
                 }
