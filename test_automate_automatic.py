@@ -40,8 +40,9 @@ promptArray = [
 
             ]
 
-testArray = ["09","07","06","04"]
-testFolder = "/Users/luisguajardo/Desktop/sem-explorations-Auto1111/automatic1111-automationTest/tests/"
+testArray = ["01", "02", "03", "05", "06","07","08","09", "10", "11", "12", "13", "14", "15"]
+
+testFolder = "/Users/luisguajardo/Desktop/sem-explorations-Auto1111/automatic1111-automationTest/test_v2/"
 
 def generate_random_string(length=6):
     characters = string.digits
@@ -57,7 +58,7 @@ def save_encoded_image(b64_image: str, output_path: str):
         image_file.write(base64.b64decode(b64_image))
 
 def getBaseImage (imageName):
-    with Image.open(testFolder + imageName + ".png") as img:
+    with Image.open(testFolder + imageName + ".jpg") as img:
         img_bytes = io.BytesIO()
         img.save(img_bytes, format='PNG')
         img_bytes = img_bytes.getvalue()
@@ -94,7 +95,7 @@ def generateImage():
             "mask": maskImage,
             "prompt": "A realistic highly detailed photograph of (((1 SINGLE PERSON ONLY ))) (((1 woman ))) POSING ((( " + promptSituation + "))) for a prom photography session (((dressed in very fancy party-like formal clothing))), UHD, 8k, Kodak lenses, nice lighting, highly detailed, press photo, high resolution, hyper realistic, ambient lighting, Nikon D850, 50mm f/1.8 lens, formal prom outfits posing for a picture, (((vibrant backdrops)))",
             "negative_prompt":"Negative prompt: 3D,illustration,sketch,drawing, low quality,deformed,malformed,ugly, oversaturated, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((b&w)), weird colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render,crop",
-            "steps": 40,
+            "steps": 30,
             "mask_mode":"inpaint_not_masked",
             "sampler_name": "DPM++ SDE Karras",
             "cfg_scale":10,
@@ -133,8 +134,8 @@ def generateImage():
     # Calculate the elapsed time and print it
     elapsed_time = end_time - start_time
     print(" image generated :) in -->" + str(elapsed_time) +" secs")
-    save_encoded_image(response.json()['images'][0], 'test_python/test_img2img_' + str(elapsed_time) +"-secs_" + generate_random_string() + '.png')
+    save_encoded_image(response.json()['images'][0], 'test_python/test_img2img_' + str(elapsed_time) + "-secs_" + promptSituation + "_" + generate_random_string() + '.png')
 
 
-for _ in range(20): 
+for _ in range(30): 
     generateImage()
