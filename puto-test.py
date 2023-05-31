@@ -11,7 +11,7 @@ from PIL import Image
 url = "http://127.0.0.1:7860"
 
 # Read Image in RGB order
-img = cv2.imread('/Users/luisguajardo/Desktop/sem-explorations-Auto1111/automatic1111-automationTest/tests/06.png')[:, :, ::-1]
+img = cv2.imread('tests/06.png')[:, :, ::-1]
 
 # Encode into PNG and send to ControlNet
 retval, bytes = cv2.imencode('.png', img)

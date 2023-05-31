@@ -40,9 +40,9 @@ promptArray = [
 
             ]
 
-testArray = ["01", "02", "03", "05", "06","07","08","09", "10", "11", "12", "13", "14", "15"]
+testArray = ["01", "02", "03", "05", "06","07","08","09", "10", "11", "12", "13", "14"]
 
-testFolder = "/Users/luisguajardo/Desktop/sem-explorations-Auto1111/automatic1111-automationTest/test_v2/"
+testFolder = "./test_v2/"
 
 def generate_random_string(length=6):
     characters = string.digits
@@ -95,13 +95,12 @@ def generateImage():
             "mask": maskImage,
             "prompt": "A realistic highly detailed photograph of (((1 SINGLE PERSON ONLY ))) (((1 woman ))) POSING ((( " + promptSituation + "))) for a prom photography session (((dressed in very fancy party-like formal clothing))), UHD, 8k, Kodak lenses, nice lighting, highly detailed, press photo, high resolution, hyper realistic, ambient lighting, Nikon D850, 50mm f/1.8 lens, formal prom outfits posing for a picture, (((vibrant backdrops)))",
             "negative_prompt":"Negative prompt: 3D,illustration,sketch,drawing, low quality,deformed,malformed,ugly, oversaturated, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((b&w)), weird colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render,crop",
-            "steps": 30,
+            "steps": 60,
             "mask_mode":"inpaint_not_masked",
             "sampler_name": "DPM++ SDE Karras",
             "cfg_scale":10,
             "width":960,
             "height":512,
-            "model_hash":"c6bbc15e32",
             "denoise_strength":0.75,
             "resize_mode": 0,
             "mask_blur": 12, 
@@ -138,5 +137,5 @@ def generateImage():
     save_encoded_image(response.json()['images'][0], 'test_python/test_img2img_' + str(elapsed_time) + "-secs_" + promptSituation + "_" + generate_random_string() + '.png')
 
 
-for _ in range(30): 
+for _ in range(300): 
     generateImage()
