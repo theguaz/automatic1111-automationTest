@@ -1,0 +1,5 @@
+requests==2.25.1
+mediapipe==0.10.0
+numpy==1.23.5
+opencv-python==4.7.0.72
+
